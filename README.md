@@ -1,0 +1,2 @@
+# jamac.dev
+Personal Website
