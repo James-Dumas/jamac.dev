@@ -1,0 +1,108 @@
+$flicker-intensity: 0.5;
+$flicker-duration: 0.25s;
+
+@keyframes flicker {
+    0% {
+      opacity: calc(0.27861 * #{$flicker-intensity});
+    }
+    5% {
+      opacity: calc(0.34769 * #{$flicker-intensity});
+    }
+    10% {
+      opacity: calc(0.23604 * #{$flicker-intensity});
+    }
+    15% {
+      opacity: calc(0.70626 * #{$flicker-intensity});
+    }
+    20% {
+      opacity: calc(0.18128 * #{$flicker-intensity});
+    }
+    25% {
+      opacity: calc(0.83891 * #{$flicker-intensity});
+    }
+    30% {
+      opacity: calc(0.65583 * #{$flicker-intensity});
+    }
+    35% {
+      opacity: calc(0.67807 * #{$flicker-intensity});
+    }
+    40% {
+      opacity: calc(0.26559 * #{$flicker-intensity});
+    }
+    45% {
+      opacity: calc(0.84693 * #{$flicker-intensity});
+    }
+    50% {
+      opacity: calc(0.76019 * #{$flicker-intensity});
+    }
+    55% {
+      opacity: calc(0.08594 * #{$flicker-intensity});
+    }
+    60% {
+      opacity: calc(0.20313 * #{$flicker-intensity});
+    }
+    65% {
+      opacity: calc(0.71988 * #{$flicker-intensity});
+    }
+    70% {
+      opacity: calc(0.53455 * #{$flicker-intensity});
+    }
+    75% {
+      opacity: calc(0.37288 * #{$flicker-intensity});
+    }
+    80% {
+      opacity: calc(0.71428 * #{$flicker-intensity});
+    }
+    85% {
+      opacity: calc(0.50419 * #{$flicker-intensity});
+    }
+    90% {
+      opacity: calc(0.7003 * #{$flicker-intensity});
+    }
+    95% {
+      opacity: calc(0.36108 * #{$flicker-intensity});
+    }
+    100% {
+      opacity: calc(0.24387 * #{$flicker-intensity});
+    }
+}
+
+.crt::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker $flicker-duration infinite;
+}
+
+.crt::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.crt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
